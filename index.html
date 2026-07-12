@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选择一种方式了解我</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" id="app">
+      <header class="site-header">
+        <button class="brand-mark" data-target="intro" type="button" aria-label="回到首页">W.</button>
+        <div class="header-center"><span>WANG SIYU</span><i></i><span>PORTFOLIO 2026</span></div>
+        <button class="header-contact" type="button" data-target="gateway">EXPLORE <b>↗</b></button>
+      </header>
+      <nav class="global-rail" aria-label="页面导览">
+        <button data-target="intro" class="rail-dot active" type="button"><span>首页</span></button>
+        <button data-target="skills" class="rail-dot" type="button"><span>技能</span></button>
+        <button data-target="gateway" class="rail-dot" type="button"><span>入口</span></button>
+        <button data-target="product" class="rail-dot route-only" type="button"><span>产品</span></button>
+        <button data-target="content" class="rail-dot route-only" type="button"><span>内容</span></button>
+        <button data-target="strategy" class="rail-dot route-only" type="button"><span>策划</span></button>
+        <button data-target="surprise" class="rail-dot route-only" type="button"><span>惊喜</span></button>
+      </nav>
+
+      <section class="snap-section intro-section" id="intro">
+        <div class="intro-bg"></div>
+        <div class="info-panel">
+          <div class="hero-eyebrow"><span>01 / PERSONAL ARCHIVE</span><span>OPEN TO WORK</span></div>
+          <h1><small>你好，我是</small>王思宇</h1>
+          <p class="intro-line">以产品思维组织信息，以内容感知连接人群。<br />正在寻找产品、品牌策略与新媒体运营方向的机会。</p>
+
+          <div class="profile-stats" aria-label="个人摘要">
+            <div><strong>03</strong><span>能力方向</span></div>
+            <div><strong>10M+</strong><span>内容播放</span></div>
+            <div><strong>700+</strong><span>测试触达</span></div>
+          </div>
+
+          <div class="profile-grid">
+            <div><span>籍贯</span><strong>内蒙古呼和浩特</strong></div>
+            <div><span>性别</span><strong>男</strong></div>
+            <div><span>电话</span><strong>15047865272</strong></div>
+            <div><span>邮箱</span><strong>15047865272@163.com</strong></div>
+            <div><span>学历</span><strong>天津大学硕士在读</strong></div>
+            <div><span>方向</span><strong>产品 / 内容 / 策划</strong></div>
+          </div>
+
+          <div class="education-block">
+            <span>EDUCATION</span>
+            <p>2025.9-2028.7 天津大学 新闻与传播硕士；2021.9-2025.7 北京语言大学 数字媒体技术本科。</p>
+          </div>
+          <button class="hero-scroll" data-target="skills" type="button"><span>SCROLL TO DISCOVER</span><i>↓</i></button>
+        </div>
+
+        <div class="photo-carousel" aria-label="个人照片轮播">
+          <button class="carousel-btn prev" type="button" aria-label="上一张">‹</button>
+          <div class="photo-stage" id="photoStage">
+            <figure class="photo-card active"><img src="./assets/photos/portrait-id.jpg" alt="证件照" /></figure>
+            <figure class="photo-card next"><img src="./assets/photos/portrait-brand.jpg" alt="项目合影" /></figure>
+            <figure class="photo-card far"><img src="./assets/photos/portrait-beijing.jpg" alt="北京照片" /></figure>
+            <figure class="photo-card prev"><img src="./assets/photos/portrait-event.jpg" alt="活动照片" /></figure>
+          </div>
+          <button class="carousel-btn next" type="button" aria-label="下一张">›</button>
+          <div class="carousel-hint"><span>PORTRAITS / 01—04</span><span>USE ARROWS TO BROWSE</span></div>
+        </div>
+      </section>
+
+      <section class="snap-section skills-section" id="skills">
+        <div class="skills-band">
+          <div class="section-number">02</div>
+          <p class="kicker">CAPABILITIES / METHODS / CURIOSITY</p>
+          <h2>把技术、<em>叙事</em>与<br />真实场景，变成可推进的体验。</h2>
+          <div class="skill-strip">
+            <span>AI 工作流</span>
+            <span>Prompt 工程</span>
+            <span>Python / HTML / SQL</span>
+            <span>Figma 原型</span>
+            <span>Pr / Ae 剪辑</span>
+            <span>数据新闻与可视化</span>
+            <span>智能传播</span>
+            <span>产品调研</span>
+          </div>
+        </div>
+        <div class="skills-note"><span>SELECT A DIRECTION</span><p>每条路径，都是我处理复杂问题的一种方式。</p></div>
+      </section>
+
+      <section class="snap-section gateway-section" id="gateway">
+        <div class="gateway-bg"></div>
+        <div class="gateway-content">
+          <div class="gateway-heading"><span class="section-number">03</span><p class="kicker">CHOOSE YOUR ROUTE</p><h2>选择一种<br /><em>了解我的方式</em></h2></div>
+          <div class="route-grid">
+            <button class="route-card product-route" data-route="product" type="button">
+              <span class="card-index">01</span>
+              <strong>产品</strong>
+              <em>Product</em>
+              <small>沿楼梯向上，查看产品思维与项目结构</small><b>↗</b>
+            </button>
+            <button class="route-card content-route" data-route="content" type="button">
+              <span class="card-index">02</span>
+              <strong>内容</strong>
+              <em>Content</em>
+              <small>进入电梯，查看内容作品与传播复盘</small><b>↗</b>
+            </button>
+            <button class="route-card strategy-route" data-route="strategy" type="button">
+              <span class="card-index">03</span>
+              <strong>策划</strong>
+              <em>Strategy</em>
+              <small>攀上岩壁，查看品牌策略与活动方案</small><b>↗</b>
+            </button>
+            <button class="gift-route surprise-route" data-route="surprise" type="button">
+              <span class="gift-box"></span>
+              <span class="card-index">04</span>
+              <strong>其他惊喜</strong>
+              <em>More</em>
+              <small>公路货车收集我的隐藏技能</small><b>↗</b>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="route-world product-world" id="product" data-route="product" aria-label="产品楼梯板块">
+        <div class="product-sky"></div>
+        <div class="stair-atmosphere"></div>
+        <div class="spiral-stage" aria-hidden="true">
+          <canvas class="stair-canvas"></canvas>
+          <div class="webgl-fallback">3D 场景加载中</div>
+          <div class="altitude-meter"><span>ASCENDING</span><i></i></div>
+        </div>
+        <article class="route-copy product-copy glass-light"></article>
+        <div class="route-controls">
+          <button class="back-gateway" type="button">← 返回入口</button>
+          <button class="prev-page" type="button">↑ 上一页</button>
+          <button class="next-page" type="button">下一页 ↓</button>
+        </div>
+        <nav class="route-page-nav" aria-label="产品页导览"></nav>
+      </section>
+
+      <section class="route-world content-world" id="content" data-route="content" aria-label="内容电梯板块">
+        <div class="elevator-shaft">
+          <div class="shaft-depth shaft-depth-left"></div>
+          <div class="shaft-depth shaft-depth-right"></div>
+          <div class="floor-streaks"></div>
+          <div class="shaft-light"></div>
+          <div class="elevator-car">
+            <div class="elevator-status">
+              <span class="safe-dot"></span>
+              <strong class="elevator-floor">01F</strong>
+              <span>UP</span>
+            </div>
+            <div class="elevator-door-frame">
+              <div class="door-glow"></div>
+              <div class="elevator-inside">
+                <h3 class="elevator-work-title">内容能力总览</h3>
+                <div class="work-slots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div class="lift-door left"></div>
+              <div class="lift-door right"></div>
+            </div>
+            <div class="elevator-caption">CONTENT LIFT / SAFE ASCENT</div>
+          </div>
+          <div class="fireworks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <article class="route-copy content-copy glass-card"></article>
+        <div class="route-controls">
+          <button class="back-gateway" type="button">← 返回入口</button>
+          <button class="prev-page" type="button">↑ 上一页</button>
+          <button class="next-page" type="button">下一页 ↓</button>
+        </div>
+        <nav class="route-page-nav" aria-label="内容页导览"></nav>
+      </section>
+
+      <section class="route-world strategy-world" id="strategy" data-route="strategy" aria-label="策划攀岩板块">
+        <div class="rock-wall">
+          <div class="rock-depth"></div>
+          <div class="climb-route" aria-hidden="true">
+            <svg viewBox="0 0 600 1000" preserveAspectRatio="none">
+              <path class="route-shadow" pathLength="100" d="M122 850 C188 790 206 745 176 680 S110 592 178 528 S255 430 210 364 S175 260 260 168 S316 92 350 42"></path>
+              <path class="route-progress" pathLength="100" d="M122 850 C188 790 206 745 176 680 S110 592 178 528 S255 430 210 364 S175 260 260 168 S316 92 350 42"></path>
+            </svg>
+            <i class="route-tip"></i>
+            <span class="route-node n1"></span><span class="route-node n2"></span>
+            <span class="route-node n3"></span><span class="route-node n4"></span>
+            <span class="route-node n5"></span><span class="route-node n6"></span>
+          </div>
+        </div>
+        <div class="summit-ridge"></div>
+        <div class="summit-sun"></div>
+        <article class="route-copy strategy-copy"></article>
+        <div class="route-controls">
+          <button class="back-gateway" type="button">← 返回入口</button>
+          <button class="prev-page" type="button">↑ 上一页</button>
+          <button class="next-page" type="button">下一页 ↓</button>
+        </div>
+        <nav class="route-page-nav" aria-label="策划页导览"></nav>
+      </section>
+
+      <section class="route-world surprise-world" id="surprise" data-route="surprise" aria-label="极客惊喜公路板块">
+        <div class="surprise-stage" aria-hidden="true">
+          <canvas class="surprise-canvas"></canvas>
+          <div class="reward-counter"><span>COLLECTED</span><strong>00</strong></div>
+        </div>
+        <article class="route-copy surprise-copy glass-light"></article>
+        <div class="route-controls">
+          <button class="back-gateway" type="button">← 返回入口</button>
+          <button class="prev-page" type="button">↑ 上一页</button>
+          <button class="next-page" type="button">下一页 ↓</button>
+        </div>
+        <nav class="route-page-nav" aria-label="惊喜页导览"></nav>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+    <script type="module" src="./stair-scene.js"></script>
+    <script type="module" src="./surprise-scene.js"></script>
+  </body>
+</html>

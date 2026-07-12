@@ -1,0 +1,4 @@
+node_modules/
+*.log
+file-mode-check.png
+vite-module-check.png
