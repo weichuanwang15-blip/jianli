@@ -3,6 +3,7 @@ import * as THREE from "./assets/vendor/three.module.js";
 const canvas = document.querySelector(".stair-canvas");
 const stage = document.querySelector(".spiral-stage");
 const fallback = document.querySelector(".webgl-fallback");
+const gsap = window.gsap;
 
 if (!canvas || !stage) {
   throw new Error("Product stair canvas is missing.");
@@ -222,6 +223,8 @@ let travelTarget = 0;
 let travelStartTime = 0;
 let travelDuration = 1.55;
 let lastTravelIndex = 0;
+const travelState = { progress: 0 };
+let travelTween;
 const pointer = new THREE.Vector2();
 const smoothPointer = new THREE.Vector2();
 const clock = new THREE.Clock();
@@ -232,6 +235,17 @@ window.updateProductScene = (page) => {
   travelTarget = targetPage / 5;
   travelStartTime = clock.getElapsedTime();
   travelDuration = 1.8 + Math.abs(travelTarget - travelStart) * 0.7;
+  if (gsap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    travelTween?.kill();
+    travelTween = gsap.to(travelState, {
+      progress: travelTarget,
+      duration: travelDuration,
+      ease: "power3.inOut",
+      overwrite: "auto",
+    });
+  } else {
+    travelState.progress = travelTarget;
+  }
 };
 
 stage.addEventListener("pointermove", (event) => {
@@ -265,9 +279,13 @@ function animate() {
   const easing = 1 - Math.exp(-delta * 3.3);
   smoothPointer.lerp(pointer, 1 - Math.exp(-delta * 4));
 
-  const travelT = THREE.MathUtils.clamp((clock.getElapsedTime() - travelStartTime) / travelDuration, 0, 1);
-  const cinematicEase = travelT * travelT * (3 - 2 * travelT);
-  travelProgress = THREE.MathUtils.lerp(travelStart, travelTarget, cinematicEase);
+  if (gsap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    travelProgress = travelState.progress;
+  } else {
+    const travelT = THREE.MathUtils.clamp((clock.getElapsedTime() - travelStartTime) / travelDuration, 0, 1);
+    const cinematicEase = travelT * travelT * (3 - 2 * travelT);
+    travelProgress = THREE.MathUtils.lerp(travelStart, travelTarget, cinematicEase);
+  }
   const travelIndex = travelProgress * (stepCount - 1);
   const focusIndex = Math.min(stepCount - 1, travelIndex + 7);
   const focusAngle = focusIndex * turn - Math.PI * 0.35;

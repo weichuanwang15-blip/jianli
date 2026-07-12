@@ -1,4 +1,5 @@
 const app = document.querySelector("#app");
+const gsap = window.gsap;
 const railButtons = [...document.querySelectorAll(".rail-dot")];
 const sections = [...document.querySelectorAll(".snap-section")];
 const photoCards = [...document.querySelectorAll(".photo-card")];
@@ -277,13 +278,6 @@ function setRoutePage(routeName, index) {
   const page = route.pages[routeIndex];
   const copy = world.querySelector(".route-copy");
 
-  copy.animate(
-    [
-      { opacity: 0.35, transform: "translateY(16px)" },
-      { opacity: 1, transform: "translateY(0)" },
-    ],
-    { duration: 420, easing: "cubic-bezier(0.22, 1, 0.36, 1)" },
-  );
   copy.innerHTML = `
     <p class="kicker">${page.eyebrow}</p>
     <h2>${page.title}</h2>
@@ -297,7 +291,23 @@ function setRoutePage(routeName, index) {
   if (routeName === "surprise") setSurpriseState(world, page);
 
   renderRouteNav(routeName);
+  playRoutePageTransition(world, copy);
   syncRail(route.rail);
+}
+
+function playRoutePageTransition(world, copy) {
+  if (!gsap || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const navButtons = world.querySelectorAll(".route-page-nav button");
+  const activeNav = world.querySelector(".route-page-nav button.active");
+  const controls = world.querySelectorAll(".route-controls button");
+  const timeline = gsap.timeline({ defaults: { overwrite: "auto" } });
+
+  timeline
+    .fromTo(copy, { autoAlpha: 0, y: 26 }, { autoAlpha: 1, y: 0, duration: 0.72, ease: "power3.out" }, 0)
+    .fromTo(controls, { autoAlpha: 0.45, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.52, stagger: 0.05, ease: "power2.out" }, 0.1)
+    .fromTo(navButtons, { autoAlpha: 0.25, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.34, stagger: 0.035, ease: "power2.out" }, 0.14);
+
+  if (activeNav) timeline.to(activeNav, { scale: 1.16, duration: 0.26, ease: "back.out(2)" }, 0.35);
 }
 
 function enterRoute(routeName) {
@@ -379,3 +389,19 @@ window.addEventListener("keydown", (event) => {
 });
 
 setPhoto(0);
+
+if (gsap) {
+  const media = gsap.matchMedia();
+  media.add("(prefers-reduced-motion: no-preference)", () => {
+    gsap.fromTo(
+      ".intro-section .info-panel > *",
+      { autoAlpha: 0, y: 18 },
+      { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.08, ease: "power3.out", delay: 0.18 },
+    );
+    gsap.fromTo(
+      ".photo-carousel",
+      { autoAlpha: 0, x: 36, rotation: 1.5 },
+      { autoAlpha: 1, x: 0, rotation: 0, duration: 1.05, ease: "power3.out", delay: 0.2 },
+    );
+  });
+}

@@ -1,9 +1,10 @@
 {
-  "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "start": "vite --host 127.0.0.1"
-  },
+	"scripts": {
+		"dev": "vite --host 127.0.0.1",
+		"start": "vite --host 127.0.0.1"
+	},
 	"dependencies": {
+		"gsap": "^3.15.0",
 		"three": "^0.185.0"
 	},
 	"devDependencies": {
